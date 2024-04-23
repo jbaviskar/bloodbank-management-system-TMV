@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from blood import forms as bforms
 from blood import models as bmodels
 
+
 def donor_signup_view(request):
     userForm=forms.DonorUserForm()
     donorForm=forms.DonorForm()
@@ -33,12 +34,15 @@ def donor_signup_view(request):
 
 
 def donor_dashboard_view(request):
+    
     donor= models.Donor.objects.get(user_id=request.user.id)
+    
     dict={
         'requestpending': bmodels.BloodRequest.objects.all().filter(request_by_donor=donor).filter(status='Pending').count(),
         'requestapproved': bmodels.BloodRequest.objects.all().filter(request_by_donor=donor).filter(status='Approved').count(),
         'requestmade': bmodels.BloodRequest.objects.all().filter(request_by_donor=donor).count(),
         'requestrejected': bmodels.BloodRequest.objects.all().filter(request_by_donor=donor).filter(status='Rejected').count(),
+        
     }
     return render(request,'donor/donor_dashboard.html',context=dict)
 
@@ -59,6 +63,8 @@ def donate_blood_view(request):
 def donation_history_view(request):
     donor= models.Donor.objects.get(user_id=request.user.id)
     donations=models.BloodDonate.objects.all().filter(donor=donor)
+    for donar in donations: 
+        donar.reward = 10 * donar.unit
     return render(request,'donor/donation_history.html',{'donations':donations})
 
 def make_request_view(request):
@@ -78,3 +84,8 @@ def request_history_view(request):
     donor= models.Donor.objects.get(user_id=request.user.id)
     blood_request=bmodels.BloodRequest.objects.all().filter(request_by_donor=donor)
     return render(request,'donor/request_history.html',{'blood_request':blood_request})
+
+
+
+
+

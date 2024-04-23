@@ -11,6 +11,11 @@ from django.contrib.auth.models import User
 from blood import forms as bforms
 from blood import models as bmodels
 
+from django.shortcuts import render
+
+def blood_donation_info(request):
+    return render(request, 'readme.html')
+
 
 def patient_signup_view(request):
     userForm=forms.PatientUserForm()

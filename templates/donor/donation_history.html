@@ -28,6 +28,10 @@
                 <th scope="col">Unit</th>
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
+                <th scope="col">reward</th>
+
+
+                
                 
             </tr>
         </thead>
@@ -51,9 +55,15 @@
                 <td><span style="color: white;margin-left: 0px;" class="label info">Pending</span></td>
                 {% endif %}
                 
-
+                {% if t.status == 'Approved' or t.status == 'Pending' %}
+                <td>
+                    {{t.reward}}
+                   
+                </td>
+                {% endif %}
             </tr>
             {% endfor %}
+            
 
         </tbody>
     

@@ -1,0 +1,69 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donation Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f44336;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  {% include "blood/navbar.html" %}
+
+  <header>
+    <h1 style="margin-top:40px">Blood Donation Information</h1>
+  </header>
+  <div class="container">
+    <h2>Why Donate Blood?</h2>
+    <p>Donating blood saves lives. Blood donations are used in a variety of medical treatments, from surgeries to treatments for cancer and other illnesses. By donating blood, you can help ensure that hospitals and medical facilities have an adequate supply of blood to meet the needs of patients.</p>
+    
+    <h2>Who Can Donate Blood?</h2>
+    <p>Most healthy adults are eligible to donate blood. Requirements may vary depending on your location and the blood donation center you visit, but generally, donors must be at least 17 years old, weigh at least 110 pounds, and be in good health.</p>
+    
+    <h2>How to Prepare for Blood Donation?</h2>
+    <p>Before donating blood, it's important to eat a nutritious meal and drink plenty of fluids. Avoid fatty foods right before donating, and make sure to get a good night's sleep the night before your donation appointment.</p>
+    
+    <h2>What to Expect During the Donation Process?</h2>
+    <p>The blood donation process typically takes about an hour from start to finish. After registering, you'll undergo a brief health screening to ensure that you're eligible to donate. Then, the donation itself usually takes around 10-15 minutes. Afterward, you'll have a chance to rest and enjoy some refreshments before resuming your normal activities.</p>
+    
+    <h2>Conclusion</h2>
+    <p>Donating blood is a simple yet impactful way to give back to your community and help those in need. If you're eligible to donate, consider making a donation today and potentially saving a life.</p>
+    
+    <!-- Translate links -->
+    <br>
+    <h3>read more</h3>
+    <ul>
+      <li><a href="https://www.mayoclinic.org/tests-procedures/blood-donation/about/pac-20385144#:~:text=Blood%20donation%20is%20safe.,body%20replaces%20the%20lost%20fluids." target="_blank">clickme</a></li>
+     
+      <!-- Add more language options as needed -->
+    </ul>
+  </div>
+
+  {% include "blood/footer.html" %}
+
+</body>
+</html>
