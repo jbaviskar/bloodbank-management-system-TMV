@@ -9,10 +9,5 @@ class Migration(migrations.Migration):
         ('blood', '0004_bloodrequest_date'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='bloodrequest',
-            name='bill',
-            field=models.PositiveIntegerField(default=1),
-        ),
-    ]
+   
+  

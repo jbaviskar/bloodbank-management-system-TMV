@@ -11,6 +11,7 @@ class Donor(models.Model):
 
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
+    lastDonated = models.CharField(max_length=30)
    
     @property
     def get_name(self):
@@ -27,6 +28,7 @@ class BloodDonate(models.Model):
     age=models.PositiveIntegerField()
     bloodgroup=models.CharField(max_length=10)
     unit=models.PositiveIntegerField(default=0)
+    lastDonated=models.CharField(max_length=30)
     status=models.CharField(max_length=20,default="Pending")
     date=models.DateField(auto_now=True)
     def __str__(self):

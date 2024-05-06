@@ -1,69 +1,322 @@
-{% load static %}
-{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blood Donation Information</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #f44336;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-    p {
-      line-height: 1.6;
-    }
-  </style>
-</head>
-<body>
-  {% include "blood/navbar.html" %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Donation Information</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-  <header>
-    <h1 style="margin-top:40px">Blood Donation Information</h1>
-  </header>
-  <div class="container">
-    <h2>Why Donate Blood?</h2>
-    <p>Donating blood saves lives. Blood donations are used in a variety of medical treatments, from surgeries to treatments for cancer and other illnesses. By donating blood, you can help ensure that hospitals and medical facilities have an adequate supply of blood to meet the needs of patients.</p>
-    
-    <h2>Who Can Donate Blood?</h2>
-    <p>Most healthy adults are eligible to donate blood. Requirements may vary depending on your location and the blood donation center you visit, but generally, donors must be at least 17 years old, weigh at least 110 pounds, and be in good health.</p>
-    
-    <h2>How to Prepare for Blood Donation?</h2>
-    <p>Before donating blood, it's important to eat a nutritious meal and drink plenty of fluids. Avoid fatty foods right before donating, and make sure to get a good night's sleep the night before your donation appointment.</p>
-    
-    <h2>What to Expect During the Donation Process?</h2>
-    <p>The blood donation process typically takes about an hour from start to finish. After registering, you'll undergo a brief health screening to ensure that you're eligible to donate. Then, the donation itself usually takes around 10-15 minutes. Afterward, you'll have a chance to rest and enjoy some refreshments before resuming your normal activities.</p>
-    
-    <h2>Conclusion</h2>
-    <p>Donating blood is a simple yet impactful way to give back to your community and help those in need. If you're eligible to donate, consider making a donation today and potentially saving a life.</p>
-    
-    <!-- Translate links -->
-    <br>
-    <h3>read more</h3>
-    <ul>
-      <li><a href="https://www.mayoclinic.org/tests-procedures/blood-donation/about/pac-20385144#:~:text=Blood%20donation%20is%20safe.,body%20replaces%20the%20lost%20fluids." target="_blank">clickme</a></li>
-     
-      <!-- Add more language options as needed -->
-    </ul>
-  </div>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #f44336;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      p {
+        line-height: 1.6;
+      }
+      .row {
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "blood/navbar.html" %}
 
-  {% include "blood/footer.html" %}
+    <header>
+      <h1 style="margin-top: 40px">Blood Donation Information</h1>
+    </header>
+    <div class="container">
+      <h2>Why Donate Blood?</h2>
+      <p>
+        Donating blood saves lives. Blood donations are used in a variety of
+        medical treatments, from surgeries to treatments for cancer and other
+        illnesses. By donating blood, you can help ensure that hospitals and
+        medical facilities have an adequate supply of blood to meet the needs of
+        patients.
+      </p>
 
-</body>
+      <!-- Embed YouTube Video -->
+      <div style="margin-top: 20px; margin-bottom: 20px">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/kOISEM6L4xk"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <h2>Who Can Donate Blood?</h2>
+      <p>
+        Most healthy adults are eligible to donate blood. Requirements may vary
+        depending on your location and the blood donation center you visit, but
+        generally, donors must be at least 17 years old, weigh at least 110
+        pounds, and be in good health.
+      </p>
+
+      <h2>How to Prepare for Blood Donation?</h2>
+      <p>
+        Before donating blood, it's important to eat a nutritious meal and drink
+        plenty of fluids. Avoid fatty foods right before donating, and make sure
+        to get a good night's sleep the night before your donation appointment.
+      </p>
+
+      <h2>What to Expect During the Donation Process?</h2>
+      <p>
+        The blood donation process typically takes about an hour from start to
+        finish. After registering, you'll undergo a brief health screening to
+        ensure that you're eligible to donate. Then, the donation itself usually
+        takes around 10-15 minutes. Afterward, you'll have a chance to rest and
+        enjoy some refreshments before resuming your normal activities.
+      </p>
+
+      <h2>Why Should I Know About Blood Conditions?</h2>
+      <p>
+        When something is wrong with your blood, it can affect your total
+        health. That is why it is important for you to know about some of the
+        common blood disorders that may affect you. People may be affected by
+        many different types of blood conditions and blood cancers. Common blood
+        disorders include anemia, bleeding disorders such as hemophilia, blood
+        clots, and blood cancers such as leukemia, lymphoma, and myeloma.
+        Talking to your doctor is the first step to take if you believe you may
+        have a blood condition. If you are diagnosed with a blood disorder, your
+        doctor may refer you to a hematologist.
+      </p>
+
+      {% comment %}
+      <h2>Conclusion</h2>
+      <p>
+        Donating blood is a simple yet impactful way to give back to your
+        community and help those in need. If you're eligible to donate, consider
+        making a donation today and potentially saving a life.
+      </p>
+      {% endcomment %}
+
+      <!-- Translate links -->
+      <br />
+    </div>
+
+    {% comment %}
+    <div class="row">
+      <div _ngcontent-oom-c6="" class="col-sm-12 text-center">
+        <h3 _ngcontent-oom-c6="" class="heading_m1">
+          <span _ngcontent-oom-c6="">Blog</span>
+        </h3>
+        <p _ngcontent-oom-c6="">
+          UBLOOD offers a platform to connect volunteering blood donors and
+          recipients. Blood donation has been prevalent for ages, however it is
+          always a challenge to find the right donor at the right time. Blood
+          donation through the years has become easier. For us to succeed in
+          this noble effort of saving lives we are guided by multiple doctors
+          and academics who are experts in the blood donation segment. Their
+          passion and responsibility towards saving lives are depicted in these
+          blogs below.
+        </p>
+      </div>
+      <div _ngcontent-oom-c6="" class="col-sm-4">
+        <div _ngcontent-oom-c6="" class="card-m2">
+          <img
+            _ngcontent-oom-c6=""
+            alt=""
+            class="img-responsive"
+            src="../assets/images/home-images/benefits-of-blood-donation.jpg"
+          />
+          <div _ngcontent-oom-c6="" class="content p-15">
+            <h4 _ngcontent-oom-c6="">Benefits of blood donation</h4>
+            <p _ngcontent-oom-c6="">
+              If you are thinking, "What good would it do to donate my blood!",
+              then keep reading. Many people hesitate to donate blood, thinking
+              it is a tedious process and that they'd faint after that. First,
+              let’s bust the myths about donating blood. These are the reasons
+              why potential and existing...
+            </p>
+            <button _ngcontent-oom-c6="" class="btn_m13">
+              <a
+                _ngcontent-oom-c6=""
+                href="https://www.ublood.com/blog/benefits-of-blood-donation/"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Read more
+                <img
+                  _ngcontent-oom-c6=""
+                  alt=""
+                  src="../assets/images/home-images/right-arrow.png"
+              /></a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div _ngcontent-oom-c6="" class="col-sm-4">
+        <div _ngcontent-oom-c6="" class="card-m2">
+          <img
+            _ngcontent-oom-c6=""
+            alt=""
+            class="img-responsive"
+            src="../assets/images/home-images/blood_crisis.jpg"
+          />
+          <div _ngcontent-oom-c6="" class="content p-15">
+            <h4 _ngcontent-oom-c6="">
+              A Mighty Challenge Blood Crisis in Corona Times
+            </h4>
+            <p _ngcontent-oom-c6="">
+              All it takes is 350 ml blood to save a life. Whether it is red
+              blood cells, platelets or other components; human blood is life
+              giving. Ask anybody who has been through a challenging health
+              crisis about the importance of blood.
+            </p>
+            <button _ngcontent-oom-c6="" class="btn_m13">
+              <a
+                _ngcontent-oom-c6=""
+                href="https://www.ublood.com/blog/a-mighty-challenge-blood-crisis-in-corona-times/"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Read more
+                <img
+                  _ngcontent-oom-c6=""
+                  alt=""
+                  src="../assets/images/home-images/right-arrow.png"
+              /></a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div _ngcontent-oom-c6="" class="col-sm-4">
+        <div _ngcontent-oom-c6="" class="card-m2">
+          <img
+            _ngcontent-oom-c6=""
+            alt=""
+            class="img-responsive"
+            src="../assets/images/home-images/technology_2.jpg"
+          />
+          <div _ngcontent-oom-c6="" class="content p-15">
+            <h4 _ngcontent-oom-c6="">
+              How can Technology help to reduce blood crisis in hard times?
+            </h4>
+            <p _ngcontent-oom-c6="">
+              Saving lives by donating blood sometimes feels over-exaggeration,
+              and India remains the world's most substantial shortage of blood,
+              with all states together battling an enormous shortfall of 41
+              million units and demand...
+            </p>
+            <button _ngcontent-oom-c6="" class="btn_m13">
+              <a
+                _ngcontent-oom-c6=""
+                href="https://www.ublood.com/blog/how-can-technology-help-to-reduce-blood-crisis-in-hard-times"
+                rel="noopener noreferrer"
+                target="_blank"
+                >Read more
+                <img
+                  _ngcontent-oom-c6=""
+                  alt=""
+                  src="../assets/images/home-images/right-arrow.png"
+              /></a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endcomment %}
+
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <div class="card" style="width: 18rem; margin-left: 350px">
+        <img
+          src="https://www.ublood.com/blog/wp-content/uploads/2020/01/10Dec_UBlood_SM_1200-850x550.jpg"
+          class="card-img-top"
+          alt="Blood donation awareness"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Benefits of Blood Donation</h5>
+          <p class="card-text">
+            If you are thinking, "What good would it do to donate my blood!",
+            then keep reading. Many people hesitate to donate blood, thinking it
+            is a tedious process and that they'd faint after that. First, let’s
+            bust the myths about donating blood. These are the reasons why
+            potential and existing...
+          </p>
+          <a
+            href="https://www.ublood.com/blog/benefits-of-blood-donation/"
+            target="_blank"
+            class="btn btn-primary"
+            >Go somewhere</a
+          >
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem">
+        <img
+          src="https://www.ublood.com/blog/wp-content/uploads/2020/01/JM_blog_Healthy-Competition.jpg"
+          class="card-img-top"
+          alt="Blood donation process"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            A Mighty Challenge Blood Crisis in Corona Times
+          </h5>
+          <p class="card-text">
+            A Mighty Challenge Blood Crisis in Corona Times All it takes is 350
+            ml blood to save a life. Whether it is red blood cells, platelets or
+            other components; human blood is life giving. Ask anybody who has
+            been through a challenging health crisis about the importance of
+            blood.
+          </p>
+          <a
+            href="https://www.ublood.com/blog/a-mighty-challenge-blood-crisis-in-corona-times/"
+            target="_blank"
+            class="btn btn-primary"
+            >Go somewhere</a
+          >
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem; margin-right: 350px">
+        <img
+          src="https://www.ublood.com/blog/wp-content/uploads/2020/01/24Dec_UBlood_SM_Platelets_1200-850x550.jpg"
+          class="card-img-top"
+          alt="Blood donor benefits"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            How can Technology help to reduce blood crisis in hard times?
+          </h5>
+          <p class="card-text">
+            Saving lives by donating blood sometimes feels over-exaggeration,
+            and India remains the world's most substantial shortage of blood,
+            with all states together battling an enormous shortfall of 41...
+          </p>
+          <a
+            href="https://www.ublood.com/blog/how-can-technology-help-to-reduce-blood-crisis-in-hard-times/"
+            class="btn btn-primary"
+            target="_blank"
+          >
+            Go somewhere
+          </a>
+        </div>
+      </div>
+    </div>
+    {% include "blood/footer.html" %}
+  </body>
 </html>

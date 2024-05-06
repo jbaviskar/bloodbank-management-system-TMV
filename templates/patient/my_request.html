@@ -30,8 +30,7 @@
                 <th scope="col">Unit</th>
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
-                <th scope="col">Bill</th>
-                <th scope="col">Bill Status</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -52,16 +51,7 @@
                 {% else %}
                 <td><span style="color: white;margin-left: 0px;" class="label info">Pending</span></td>
                 {% endif %}
-                <td>{{t.bill}}</td>
-                {% if t.status == 'Approved' %}
-                <td>Bill Paid</td>
-                
-                {% elif t.status == 'Rejected' %}
-                <td>Not Applicable</td>
-                {% else %}
-                <td>Pending</td>
-                {% endif %}
-
+               
             </tr>
             {% endfor %}
 

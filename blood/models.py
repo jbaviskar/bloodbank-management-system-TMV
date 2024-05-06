@@ -17,7 +17,6 @@ class BloodRequest(models.Model):
     unit=models.PositiveIntegerField(default=0)
     status=models.CharField(max_length=20,default="Pending")
     date=models.DateField(auto_now=True)
-    bill=models.PositiveIntegerField(default=1)
     def __str__(self):
         return self.bloodgroup
 

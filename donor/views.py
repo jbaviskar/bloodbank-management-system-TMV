@@ -51,21 +51,38 @@ def donate_blood_view(request):
     donation_form=forms.DonationForm()
     if request.method=='POST':
         donation_form=forms.DonationForm(request.POST)
+        print("*****************", donation_form)
         if donation_form.is_valid():
             blood_donate=donation_form.save(commit=False)
             blood_donate.bloodgroup=donation_form.cleaned_data['bloodgroup']
+            # blood_donate.lastDonated=donation_form.fields['lastDonated']
+            # print ("++++++++++++++++", blood_donate)
             donor= models.Donor.objects.get(user_id=request.user.id)
             blood_donate.donor=donor
             blood_donate.save()
             return HttpResponseRedirect('donation-history')  
     return render(request,'donor/donate_blood.html',{'donation_form':donation_form})
 
+# def donation_history_view(request):
+#     donor= models.Donor.objects.get(user_id=request.user.id)
+#     donations=models.BloodDonate.objects.all().filter(donor=donor)
+#     for donar in donations: 
+#         donar.reward = 10 * donar.unit
+#     return render(request,'donor/donation_history.html',{'donations':donations})
+
 def donation_history_view(request):
-    donor= models.Donor.objects.get(user_id=request.user.id)
-    donations=models.BloodDonate.objects.all().filter(donor=donor)
-    for donar in donations: 
-        donar.reward = 10 * donar.unit
-    return render(request,'donor/donation_history.html',{'donations':donations})
+    donor = models.Donor.objects.get(user_id=request.user.id)
+    donations = models.BloodDonate.objects.filter(donor=donor)
+    for donation in donations:
+        donation.reward = 10 * donation.unit
+        if donation.status == 'Approved':
+            # Assuming you calculate or retrieve a diet plan somehow
+            donation.diet_plan = "Ensure a balanced diet with increased iron intake"
+        else:
+            donation.diet_plan = None
+        donation.status_class = 'success' if donation.status == 'Rejected' else 'warning' if donation.status == 'Approved' else 'info'
+    return render(request, 'donor/donation_history.html', {'donations': donations})
+
 
 def make_request_view(request):
     request_form=bforms.RequestForm()

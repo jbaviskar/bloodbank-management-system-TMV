@@ -197,6 +197,9 @@ def admin_request_history_view(request):
 @login_required(login_url='adminlogin')
 def admin_donation_view(request):
     donations=dmodels.BloodDonate.objects.all()
+    # for donar in donations:
+    #     print("_________________________\n")
+    #     print(donar.donar) 
     return render(request,'blood/admin_donation.html',{'donations':donations})
 
 @login_required(login_url='adminlogin')

@@ -1,44 +1,42 @@
 {% load static %}
 <!DOCTYPE html>
-
+<html>
 <head>
     <style>
         .xyz{
           margin-bottom: 0px;
-          background-image: url('{% static "image/background1 image.jpg" %}');
+          background-image: url('{% static "image/hompage3.jpg" %}');
           background-size: cover;
-          background-repeat: no-repeat;
+          background-repeat: round;
+          height:643px;
         }
-      </style>
-      
+        .headline {
+            font-size: 2rem;
+            font-family: sans-serif;
+            font-weight: 500 ;
+            color: #bb1616;
+        }
+        /* CSS to pause the marquee on hover */
+        marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
 </head>
-
-
 <body>
-  {% include "blood/navbar.html" %}
-<br>
-<section id="section-jumbotron" style="margin-bottom: 0px;" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center xyz">
-    <div class="container text-center">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-     
-      
-      <br><br><br><br>
-      
-    </div>  
-  </section>
+    {% include "blood/navbar.html" %}
+    <br>
+    <section id="section-jumbotron" style="margin-bottom: 0px;" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center xyz">
+        <div class="container text-center">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br>
+        </div>  
+    </section>
 
-
-  <div class="jumbotron" style="margin-top: 0px;margin-bottom: 0px;">
-
-    <p class="lead text-center"><b>“The Blood Bank: Saving lives Empowering communities”</b>
-      </p>
-    
-    
-    
-  </div>
-  {% include "blood/footer.html" %}
-
-
+    <div class="jumbotron" style="margin-top: 0px;margin-bottom: 0px;">
+        <p class="headline text-center">
+            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"><b>“WE NEVER ACCEPT AND ASK PAYMENT FOR BLOOD...ITS A SELFLESS ACT SAVE LIVES WITHOUT COST”</b></marquee>
+        </p>
+    </div>
+    {% include "blood/footer.html" %}
 </body>
-
 </html>

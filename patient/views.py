@@ -65,7 +65,7 @@ def make_request_view(request):
 def my_request_view(request):
     patient= models.Patient.objects.get(user_id=request.user.id)
     blood_request=bmodels.BloodRequest.objects.all().filter(request_by_patient=patient)
-    for p in blood_request:
-        p.bill = 1
-        p.bill = p.unit*25
+    # for p in blood_request:
+    #     p.bill = 1
+    #     p.bill = p.unit*25
     return render(request,'patient/my_request.html',{'blood_request':blood_request})
